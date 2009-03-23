@@ -49,6 +49,7 @@ class TestNytimes::TestArticles::TestQuery < Test::Unit::TestCase
     should_proxy_search_param :facets, ['geo_facet', 'org_facet', 'per_facet']
     should_proxy_search_param :fields, ['title', 'abstract']
     should_proxy_search_param :offset, 99
+    should_proxy_search_param :page, 99     # Article#search takes care of mapping :page to :offset
     
     should "not pass nil parameters" do
       @query.query = 'foo'
